@@ -1,6 +1,6 @@
 @echo off
 title 音频转码
-ffmpeg.exe -i ./audio_input/audio.m4s -map_metadata -1 ./temp/audio.aac
+ffmpeg.exe -i ./audio_input/audio.m4s -acodec aac -map_metadata -1 ./temp/audio.aac
 title 视频转码
 ffmpeg.exe -i ./video_input/video.m4s -vcodec copy -map_metadata -1 ./temp/video.mp4
 title 音视混流
