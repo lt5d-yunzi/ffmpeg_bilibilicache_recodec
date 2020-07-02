@@ -1,11 +1,11 @@
 @echo off
-title ÒôÆµ×ªÂë
-ffmpeg.exe -i ./audio_input/audio.m4s ./temp/audio.aac
-title ÊÓÆµ×ªÂë
-ffmpeg.exe -i ./video_input/video.m4s ./temp/video.mp4
-title ÒôÊÓ»ìÁ÷
+title éŸ³é¢‘è½¬ç 
+ffmpeg.exe -i ./audio_input/audio.m4s -vcodec copy -map_metadata -1 ./temp/audio.aac
+title è§†é¢‘è½¬ç 
+ffmpeg.exe -i ./video_input/video.m4s -vcodec copy -map_metadata -1 ./temp/video.mp4
+title éŸ³è§†æ··æµ
 ffmpeg.exe -i ./temp/video.mp4 -i ./temp/audio.aac -vcodec copy -acodec copy -map 0:v:0 -map 1:a:0 -map_metadata -1  -shortest ./output/output.mp4
-title É¾³ıÁÙÊ±ÎÄ¼ş
+title åˆ é™¤ä¸´æ—¶æ–‡ä»¶
 del .\temp\audio.aac
 del .\temp\video.mp4
 pause
